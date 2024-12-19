@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Head from "next/head";
 import styles from "./page.module.css";
+import Link from "next/link";
 export async function fetchEventsCatData() {
   const data = await import("../data/data.json");
   return data;
@@ -17,19 +18,19 @@ export default async function Home() {
       <header>
         <nav>
           <img></img>
-          <a href="/">Home</a>
-          <a href="/events">Events</a>
-          <a href="/about-us">About us</a>
+          <Link href="/">Home</Link>
+          <Link href="/events">Events</Link>
+          <Link href="/about-us">About us</Link>
         </nav>
       </header>
       <main className={styles.main}>
         <h1>Welcome to the Events App</h1>
         {events_categories.map((e) => (
-          <a key={e.id} href={`events/${e.id}`}>
+          <Link key={e.id} href={`events/${e.id}`}>
             <Image src={e.image} alt={e.title} width={200} height={200} />
             <h2>{e.title}</h2>
             <p>{e.description}</p>
-          </a>
+          </Link>
         ))}
       </main>
       <footer className={styles.footer}>

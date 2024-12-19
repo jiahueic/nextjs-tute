@@ -33,6 +33,11 @@ const res = await fetch(URL);
 const data = await res.json();
 ```
 
+# For dynamic path routing and rendering, there are 2 steps:
+
+1. generateStaticParams function to list down all paths
+2. reference the path param generated and filter/retrieve relevant contents
+
 ## Git tips
 
 ```sh
@@ -41,3 +46,7 @@ rm -rf .git
 git checkout --orphan latest_branch
 git rm -r --cached events_app/.next
 ```
+
+## Random Notes
+
+Link gives the ability to do client-side navigation in the browser so the pages are loaded using Javascript and we don't make a new request to the server
