@@ -36,6 +36,8 @@ const data = await res.json();
 ## Git tips
 
 ```sh
+cd events_app
+rm -rf .git
 git checkout --orphan latest_branch
 git rm -r --cached events_app/.next
 ```
