@@ -32,3 +32,10 @@ In Next.js 13+ with the **App Router**, you can create a page accessible at `htt
 const res = await fetch(URL);
 const data = await res.json();
 ```
+
+## Git tips
+
+```sh
+git checkout --orphan latest_branch
+git rm -r --cached events_app/.next
+```
