@@ -1,15 +1,22 @@
 "use client"; // Add this at the top of the file
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const SingleEvent = ({ events }) => {
   const inputEmail = useRef();
   const pathName = usePathname();
+  const validRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const [message, setMessage] = useState("");
+
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(inputEmail);
     const emailValue = inputEmail.current.value;
+    if (!emailValue.match(validRegex)) {
+      // TO CONTINUE
+      setMessage("Please introduce a correct email address");
+    }
     const paths = pathName.split("/");
     const eventName = paths[paths.length - 1];
     try {
@@ -48,13 +55,14 @@ const SingleEvent = ({ events }) => {
       <form onSubmit={onSubmit} className="email_registration">
         <label>Get registered for this event</label>
         <input
-          type="email"
+          // type="email"
           id="email"
           ref={inputEmail}
           placeholder="Please insert your email here"
         ></input>
         <button type="submit">Submit</button>
       </form>
+      <p>{message}</p>
     </div>
   );
 };

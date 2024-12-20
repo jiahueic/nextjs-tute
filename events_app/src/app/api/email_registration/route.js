@@ -33,7 +33,7 @@ export async function POST(request) {
         error: "This email has already been registered",
       }),
       {
-        status: 201, // Set the status code to 404
+        status: 409,
         headers: { "Content-Type": "application/json" },
       }
     );
