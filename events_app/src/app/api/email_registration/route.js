@@ -22,27 +22,34 @@ export async function POST(request) {
       }
     );
   }
-  const newAllEvents = allEvents.map((e) => {
-    if (e.id == event_id) {
-      if (e.emails_registered.includes(email)) {
-        return new Response(
-          JSON.stringify({
-            error: "This email has already been registered",
-          }),
-          {
-            status: 201, // Set the status code to 404
-            headers: { "Content-Type": "application/json" },
-          }
-        );
+
+  // find the index of the event that matches the event name in the body
+  const event_index = allEvents.findIndex((e) => e.id == event_id);
+  const target_event = allEvents[event_index];
+  const emails_registered = target_event.emails_registered;
+  if (emails_registered.includes(email)) {
+    return new Response(
+      JSON.stringify({
+        error: "This email has already been registered",
+      }),
+      {
+        status: 201, // Set the status code to 404
+        headers: { "Content-Type": "application/json" },
       }
-      return { ...e, emails_registered: [...e.emails_registered, email] };
-    }
-    return e;
-  });
+    );
+  }
+  var new_target_event = {
+    ...target_event,
+    emails_registered: [...target_event.emails_registered, email],
+  };
+  allEvents[event_index] = new_target_event;
 
   fs.writeFileSync(
     filePath,
-    JSON.stringify({ events_categories, allEvents: newAllEvents })
+    JSON.stringify({
+      events_categories: events_categories,
+      allEvents: allEvents,
+    })
   );
   return new Response(
     JSON.stringify({
