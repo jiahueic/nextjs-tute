@@ -1,7 +1,5 @@
-import Image from "next/image";
 import Head from "next/head";
-import styles from "./page.module.css";
-import Link from "next/link";
+import { HomePage } from "@/components/home/home-page";
 export async function fetchEventsCatData() {
   const data = await import("../data/data.json");
   return data;
@@ -11,39 +9,11 @@ export default async function Home() {
   // console.log(data.events_categories);
   const events_categories = data.events_categories;
   return (
-    <div className={styles.page}>
+    <div>
       <Head>
         <title>Events App</title>
       </Head>
-      <header>
-        <nav>
-          <img></img>
-          <Link href="/">Home</Link>
-          <Link href="/events">Events</Link>
-          <Link href="/about-us">About us</Link>
-        </nav>
-      </header>
-      <main className={styles.main}>
-        <h1>Welcome to the Events App</h1>
-        {events_categories.map((e) => (
-          <Link key={e.id} href={`events/${e.id}`}>
-            <Image src={e.image} alt={e.title} width={200} height={200} />
-            <h2>{e.title}</h2>
-            <p>{e.description}</p>
-          </Link>
-        ))}
-      </main>
-      <footer className={styles.footer}>
-        <p>
-          © 2024 Events App. All rights reserved. Unauthorized use,
-          distribution, or reproduction of this application or any part of its
-          content, including text, graphics, and code, is strictly prohibited
-          without prior written permission from Events App. All trademarks,
-          logos, and brand names used herein are the property of their
-          respective owners. For inquiries, please contact:
-          [jiahueicheah87@example.com]
-        </p>
-      </footer>
+      <HomePage events_categories={events_categories}></HomePage>
     </div>
   );
 }

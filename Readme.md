@@ -38,6 +38,12 @@ const data = await res.json();
 1. generateStaticParams function to list down all paths
 2. reference the path param generated and filter/retrieve relevant contents
 
+# Revise the code by making reusable parts into components
+
+1. Arguments can be passed as props from the parent (calling) function.
+
+# Shortcut to create arrow function (rafce)
+
 ## Git tips
 
 ```sh
@@ -49,4 +55,5 @@ git rm -r --cached events_app/.next
 
 ## Random Notes
 
-Link gives the ability to do client-side navigation in the browser so the pages are loaded using Javascript and we don't make a new request to the server
+1. Link gives the ability to do client-side navigation in the browser so the pages are loaded using Javascript and we don't make a new request to the server
+2. global.css is applied to the whole website and is imported by layout.js
