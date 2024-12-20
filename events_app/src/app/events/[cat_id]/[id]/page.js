@@ -7,7 +7,7 @@ const SingleEventPage = async ({ params }) => {
   // const { cat_id } = params;
   const { id } = await params;
   // filter returns an array
-  const events = allEvents.filter((e) => e.id == id);
+  const events = await allEvents.filter((e) => e.id == id);
 
   return <SingleEvent events={events}></SingleEvent>;
 };

@@ -15,7 +15,7 @@ npm run dev
 
 In Next.js 13+ with the **App Router**, you can create a page accessible at `http://localhost:3000/about-us` by following this structure:
 
-## Folder Structure
+# Folder Structure
 
 ```plaintext
 /src
@@ -26,7 +26,7 @@ In Next.js 13+ with the **App Router**, you can create a page accessible at `htt
 │   └── page.js           # Homepage (http://localhost:3000/)
 ```
 
-## If we need to get data from url
+# If we need to get data from url
 
 ```sh
 const res = await fetch(URL);
@@ -68,7 +68,7 @@ git checkout --orphan latest_branch
 git rm -r --cached events_app/.next
 ```
 
-## Random Notes
+# Random Notes
 
 1. Link gives the ability to do client-side navigation in the browser so the pages are loaded using Javascript and we don't make a new request to the server
 2. global.css is applied to the whole website and is imported by layout.js
