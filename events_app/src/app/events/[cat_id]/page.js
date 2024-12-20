@@ -12,15 +12,22 @@ const EventInCityPage = async ({ params }) => {
   );
 
   return (
-    <div>
+    <div className="cat_events">
       <h2>Events in {cat_id}</h2>
-      {events.map((e) => (
-        <Link key={e.id} href={`/events/${cat_id}/${e.id}`} passHref>
-          <Image src={e.image} alt={e.title} width={500} height={300} />
-          <h2>{e.title}</h2>
-          {/* <p>{e.description}</p> */}
-        </Link>
-      ))}
+      <div className="content">
+        {events.map((e) => (
+          <Link
+            className="card"
+            key={e.id}
+            href={`/events/${cat_id}/${e.id}`}
+            passHref
+          >
+            <Image src={e.image} alt={e.title} width={300} height={300} />
+            <h2>{e.title}</h2>
+            {/* <p>{e.description}</p> */}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

@@ -44,7 +44,13 @@ const data = await res.json();
 
 # Shortcut to create arrow function (rafce)
 
-## Git tips
+# Install SASS
+
+```sh
+npm i sass --development
+```
+
+# Git tips
 
 ```sh
 cd events_app

@@ -5,11 +5,10 @@ const EventsPage = async () => {
   const { events_categories } = await fetchEventsCatData();
 
   return (
-    <div>
-      <h1>Events page</h1>
+    <div className="events_page">
       {events_categories.map((e) => (
-        <Link key={e.id} href={`events/${e.id}`}>
-          <Image src={e.image} alt={e.title} width={200} height={200} />
+        <Link className="card" key={e.id} href={`events/${e.id}`}>
+          <Image src={e.image} alt={e.title} width={400} height={400} />
           <h2>{e.title}</h2>
         </Link>
       ))}

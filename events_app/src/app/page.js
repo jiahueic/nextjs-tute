@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { HomePage } from "@/components/home/home-page";
+
 export async function fetchEventsCatData() {
   const data = await import("../data/data.json");
   return data;
