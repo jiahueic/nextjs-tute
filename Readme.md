@@ -50,6 +50,15 @@ const data = await res.json();
 npm i sass --development
 ```
 
+# Key Differences Between App and Pages Routers
+
+| Feature                    | App Router (`app/api`)                | Pages Router (`pages/api`)      |
+| -------------------------- | ------------------------------------- | ------------------------------- |
+| **File Location**          | `app/api/[endpoint]/route.js`         | `pages/api/[endpoint].js`       |
+| **Default Output**         | Uses `Response` objects               | Uses `req` and `res` handlers   |
+| **Middleware Integration** | Better support for middleware         | Limited middleware capabilities |
+| **Incremental Adoption**   | Only available in the `app` directory | Available in older versions     |
+
 # Git tips
 
 ```sh

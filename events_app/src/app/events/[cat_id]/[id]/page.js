@@ -1,24 +1,15 @@
 import { fetchEventsCatData } from "@/app/page";
-import Image from "next/image";
+import SingleEvent from "@/components/events/singleEvent";
+
 const SingleEventPage = async ({ params }) => {
   // get the event with the same id
   const { allEvents } = await fetchEventsCatData();
-  const { cat_id } = params;
-  const { id } = params;
+  // const { cat_id } = params;
+  const { id } = await params;
   // filter returns an array
   const events = allEvents.filter((e) => e.id == id);
-  console.log(events);
-  return (
-    <div>
-      {events.map((e) => (
-        <div key={e.id}>
-          <h1>{e.title}</h1>
-          <p>{e.description}</p>
-          <Image src={e.image} alt={e.title} width={500} height={300} />
-        </div>
-      ))}
-    </div>
-  );
+
+  return <SingleEvent events={events}></SingleEvent>;
 };
 
 export default SingleEventPage;
