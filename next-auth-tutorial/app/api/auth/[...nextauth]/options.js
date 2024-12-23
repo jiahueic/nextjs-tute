@@ -1,5 +1,6 @@
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import NextAuth from "next-auth";
 
 export const options = {
   providers: [
@@ -44,3 +45,5 @@ export const options = {
     },
   },
 };
+
+export default NextAuth(options);

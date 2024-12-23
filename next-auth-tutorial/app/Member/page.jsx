@@ -4,7 +4,13 @@ import { options } from "../api/auth/[...nextauth]/options";
 const Member = async () => {
   const session = await getServerSession(options);
   if (!session) {
-    redirect("/api/auth/signin?callbackUrl=/Member");
+    // Redirect to the sign-in page if not authenticated
+    return (
+      <meta
+        httpEquiv="refresh"
+        content="0; url=/api/auth/signin?callbackUrl=/Member"
+      />
+    );
   }
   console.log(session.user);
   return (
