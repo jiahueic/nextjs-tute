@@ -10,7 +10,7 @@ const Dashboard = () => {
     <>
       <div className="wrapper">
         <Header></Header>
-        {/* <Menu></Menu> */}
+        <Menu></Menu>
         <MiniDashboard></MiniDashboard>
         <Footer></Footer>
       </div>
